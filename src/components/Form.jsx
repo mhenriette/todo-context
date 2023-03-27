@@ -5,12 +5,12 @@ import Task from "./Task";
 
 const Form = () => {
     const context = useContext(TodoContext)
-    const { tasks, deleteTask, handleClick, handleEdit } = context
+    const { tasks, deleteTask, handleClick, getCurrent } = context
     return <form className="m-5" onSubmit={(event) => event.preventDefault()}>
         {tasks.length > 0 ?
             (
                 tasks.map((task, index) => {
-                    return <Task children={task.value} key={task.id} checked={task.checked} onClick={() => deleteTask(task.id)} onChange={() => handleClick(task.id)} />
+                    return <Task children={task.value} key={task.id} checked={task.checked} id={task.id} onClick={() => deleteTask(task.id)} onChange={() => handleClick(task.id)} getCurrentId={() => getCurrent(task.id)} />
                 })
             ) :
             (
