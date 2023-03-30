@@ -1,10 +1,9 @@
 import plus from "../assets/plus.svg";
-import TodoContext from "./TodoContext";
-import { useContext } from "react";
 import Form from "./Form";
+import useTodo from "../hook/useTodo";
 
 const ToDo = () => {
-  const context = useContext(TodoContext);
+  const context = useTodo();
 
   return (
     <div className="my-32 lg:w-1/2 text-center">
