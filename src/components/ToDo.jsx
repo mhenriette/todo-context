@@ -3,8 +3,7 @@ import Form from "./Form";
 import useTodo from "../hook/useTodo";
 
 const ToDo = () => {
-  const context = useTodo();
-
+  const { text, handleText, addTask } = useTodo();
   return (
     <div className="my-32 lg:w-1/2 text-center">
       <h1 className="text-gray-300 text-7xl font-bold my-10">todos</h1>
@@ -12,12 +11,12 @@ const ToDo = () => {
         <input
           placeholder="Add your task..."
           type="text"
-          value={context.text}
+          value={text}
           className="flex-grow py-3 outline-none"
           name="taskName"
-          onChange={context.handleText}
+          onChange={handleText}
         />
-        <button onClick={context.addTask}>
+        <button onClick={addTask}>
           <img src={plus} alt="plus" className="w-8 h-8" />
         </button>
       </div>
